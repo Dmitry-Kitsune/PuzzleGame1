@@ -4,18 +4,20 @@ using UnityEngine;
 public class TilesScript : MonoBehaviour
 {
     public Vector3 targetPosition;
-    private Vector3 correctPosition;
+    private Vector3 _correctPosition;
     private SpriteRenderer _sprite;
-    void Start()
+    public int number;
+
+    void Awake()
     {
         targetPosition = transform.position;
-        correctPosition = targetPosition;
+        _correctPosition = targetPosition;
         _sprite = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
         transform.position = Vector3.Lerp(transform.position, targetPosition, 0.05f);
-        if (targetPosition == correctPosition)
+        if (targetPosition == _correctPosition)
         {
             _sprite.color = Color.green; 
         }

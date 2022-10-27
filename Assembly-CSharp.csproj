@@ -41,9 +41,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\GameScript.cs" />
      <Compile Include="Assets\Scripts\TilesScript.cs" />
-     <None Include="Assets\2d Free Pixel Art Realistic Crystals Pack\Documentation\2d Pixel Art Realistic Crystals Pack.txt" />
+     <Compile Include="Assets\Scripts\BlockScript.cs" />
+     <Compile Include="Assets\Scripts\GridScript.cs" />
+     <Compile Include="Assets\Scripts\GameScript.cs" />
      <Reference Include="UnityEngine">
      <HintPath>G:\Programming\UNITY\2021.3.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
