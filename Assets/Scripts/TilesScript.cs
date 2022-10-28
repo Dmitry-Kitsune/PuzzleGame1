@@ -9,7 +9,7 @@ public class TilesScript : MonoBehaviour
     private SpriteRenderer _sprite;
     public int number;
     public int emptySpaceIndex;
-    public bool inRightPlace;
+    public static bool InRightPlace;
     public int win = 0;
     void Awake()
     {
@@ -59,7 +59,7 @@ public class TilesScript : MonoBehaviour
                                                & Math.Abs(bluePos6 - bluePos5) < 0.01)
         {
             _sprite.color = Color.green;
-            inRightPlace = true;
+            InRightPlace = true;
             win = 1;
         }
         /*if (targetPosition == _correctPosition)
@@ -70,7 +70,7 @@ public class TilesScript : MonoBehaviour
         else
         {
             _sprite.color = Color.white;
-            inRightPlace = false;
+            InRightPlace = false;
         }
     }
 }

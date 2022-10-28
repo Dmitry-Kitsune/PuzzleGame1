@@ -1,7 +1,10 @@
+using System;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class GameScript : MonoBehaviour
 {
@@ -12,13 +15,13 @@ public class GameScript : MonoBehaviour
     [SerializeField] private TilesScript[] tiles;
     [SerializeField] private GameObject winPanel;
     [SerializeField] private TextMeshProUGUI winPanelTiMeshPro;
-
+    [SerializeField] private TilesScript[] headTiles;   
     public TilesScript tilesScript;
-    //  [SerializeField] private BlockScript[] block;
+    [SerializeField] private BlockScript[] block;
     private Camera _camera;
     private bool _isFinished;
     private int _emptySpaceIndex;
-    
+    //public bool move { get; }
 
     void Start()
     {
@@ -28,83 +31,110 @@ public class GameScript : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
+            var gameObjs = GameObject.FindGameObjectsWithTag(tag);
+            Console.WriteLine($"gameObjs{gameObjs}");
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
             if (hit)
             {
                 // Debug.Log(hit.transform.name);
+                
                 if (Vector2.Distance(emptySpace1.position, hit.transform.position) <= 6.01)
                 {
-                    Vector2 lastEmptySpacePosition = emptySpace1.position;
-                    TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
-                    emptySpace1.position = thisTile.targetPosition;
-                    thisTile.targetPosition = lastEmptySpacePosition;
-                    int tileIndex = FindIndex(thisTile);
-                    this._emptySpaceIndex = 6;
-                    //this.emptySpaceIndex = 21;
-                    _emptySpaceIndex = tileIndex;
-                    tiles[_emptySpaceIndex] = tiles[tileIndex];
-                    tiles[tileIndex] = null;
+                    if (gameObjs !=GameObject.FindGameObjectsWithTag("Block"))
+                    {
+                        Vector2 lastEmptySpacePosition = emptySpace1.position;
+                        TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
+                        emptySpace1.position = thisTile.targetPosition;
+                        thisTile.targetPosition = lastEmptySpacePosition;
+                        int tileIndex = FindIndex(thisTile);
+                        this._emptySpaceIndex = 6;
+                        //this.emptySpaceIndex = 21;
+                        _emptySpaceIndex = tileIndex;
+                        tiles[_emptySpaceIndex] = tiles[tileIndex];
+                        tiles[tileIndex] = null;
+                    }
+
+                    return;
                 }
 
                 if (Vector2.Distance(emptySpace2.position, hit.transform.position) <= 6.01)
                 {
-                    Vector2 lastEmptySpacePosition = emptySpace2.position;
-                    TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
-                    emptySpace2.position = thisTile.targetPosition;
-                    thisTile.targetPosition = lastEmptySpacePosition;
-                    int tileIndex = FindIndex(thisTile);
-                    this._emptySpaceIndex = 8;
-                    //this.emptySpaceIndex = 22;
-                    _emptySpaceIndex = tileIndex;
-                    tiles[_emptySpaceIndex] = tiles[tileIndex];
-                    tiles[tileIndex] = null;
+                    if (gameObjs !=GameObject.FindGameObjectsWithTag("Block"))
+                    {
+                        Vector2 lastEmptySpacePosition = emptySpace2.position;
+                        TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
+                        emptySpace2.position = thisTile.targetPosition;
+                        thisTile.targetPosition = lastEmptySpacePosition;
+                        int tileIndex = FindIndex(thisTile);
+                        this._emptySpaceIndex = 8;
+                        //this.emptySpaceIndex = 22;
+                        _emptySpaceIndex = tileIndex;
+                        tiles[_emptySpaceIndex] = tiles[tileIndex];
+                        tiles[tileIndex] = null;
+                    }
+
+                    return;
                 }
 
-                if (Vector2.Distance(emptySpace3.position, hit.transform.position) <= 6.01)
+                if ( Vector2.Distance(emptySpace3.position, hit.transform.position) <= 6.01)
                 {
-                    Vector2 lastEmptySpacePosition = emptySpace3.position;
-                    TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
-                    emptySpace3.position = thisTile.targetPosition;
-                    thisTile.targetPosition = lastEmptySpacePosition;
-                    int tileIndex = FindIndex(thisTile);
-                    this._emptySpaceIndex = 16;
-                    //this.emptySpaceIndex = 23;
-                    _emptySpaceIndex = tileIndex;
-                    tiles[_emptySpaceIndex] = tiles[tileIndex];
-                    tiles[tileIndex] = null;
+                    if (gameObjs !=GameObject.FindGameObjectsWithTag("Block"))
+                    {
+                        Vector2 lastEmptySpacePosition = emptySpace3.position;
+                        TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
+                        emptySpace3.position = thisTile.targetPosition;
+                        thisTile.targetPosition = lastEmptySpacePosition;
+                        int tileIndex = FindIndex(thisTile);
+                        this._emptySpaceIndex = 16;
+                        //this.emptySpaceIndex = 23;
+                        _emptySpaceIndex = tileIndex;
+                        tiles[_emptySpaceIndex] = tiles[tileIndex];
+                        tiles[tileIndex] = null;
+                    }
+
+                    return;
                 }
 
                 if (Vector2.Distance(emptySpace4.position, hit.transform.position) <= 6.01)
                 {
-                    Vector2 lastEmptySpacePosition = emptySpace4.position;
-                    TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
-                    emptySpace4.position = thisTile.targetPosition;
-                    thisTile.targetPosition = lastEmptySpacePosition;
-                    int tileIndex = FindIndex(thisTile);
-                    this._emptySpaceIndex = 18;
-                    //this.emptySpaceIndex = 24;
-                    _emptySpaceIndex = tileIndex;
-                    tiles[_emptySpaceIndex] = tiles[tileIndex];
-                    tiles[tileIndex] = null;
+                    if (gameObjs !=GameObject.FindGameObjectsWithTag("Block"))
+                    {
+                        Vector2 lastEmptySpacePosition = emptySpace4.position;
+                        TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
+                        emptySpace4.position = thisTile.targetPosition;
+                        thisTile.targetPosition = lastEmptySpacePosition;
+                        int tileIndex = FindIndex(thisTile);
+                        this._emptySpaceIndex = 18;
+                        //this.emptySpaceIndex = 24;
+                        _emptySpaceIndex = tileIndex;
+                        tiles[_emptySpaceIndex] = tiles[tileIndex];
+                        tiles[tileIndex] = null;
+                    }
+
+                    return;
                 }
             }
         }
 
         if (!_isFinished)
         {
-            int correctTiles = 0;
+            var done = TilesScript.InRightPlace;
+                   Console.WriteLine(done);
+            var correctTiles = 0;
             foreach (var a in tiles)
             {
-                if (a != null)
+                if ( done == false)
                 {
-                    if (a.inRightPlace)
+                    if (TilesScript.InRightPlace)
                         correctTiles++;
                 }
-
-                if (correctTiles == tiles.Length - 4)
+                
+                if (done)
+                    
                 {
                     _isFinished = true;
                     Debug.Log("You WON!");
@@ -113,6 +143,16 @@ public class GameScript : MonoBehaviour
                     b.StopTimer();
                     winPanelTiMeshPro.text = $"{b.minutes:0#}:{b.seconds:0#}";
                 }
+
+                // if (correctTiles == tiles.Length - 4)
+                // {
+                //     _isFinished = true;
+                //     Debug.Log("You WON!");
+                //     winPanel.SetActive(true);
+                //     var b = GetComponent<TimerScript>();
+                //     b.StopTimer();
+                //     winPanelTiMeshPro.text = $"{b.minutes:0#}:{b.seconds:0#}";
+                // }
                 else
                 {
                     _isFinished = false;
@@ -121,7 +161,6 @@ public class GameScript : MonoBehaviour
         }
     }
 
-
     public void PlayAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -129,19 +168,27 @@ public class GameScript : MonoBehaviour
 
     private void Shuffle()
     {
-        for (int i = 0; i <= 24; i++)
+        for (var i = 0; i <= 18; i++)
         {
-            if (tiles[i] != null)
-            {
-                var lastPos = tiles[i].targetPosition;
-                int randomIndex = Random.Range(0, 21);
-                tiles[i].targetPosition = tiles[randomIndex].targetPosition;
-                tiles[randomIndex].targetPosition = lastPos;
-                var tile = tiles[i];
-                tiles[i] = tiles[randomIndex];
-                tiles[randomIndex] = tile;
-            }
+            if (tiles[i] == null) continue;
+            var lastPos = tiles[i].targetPosition;
+            var randomIndex = Random.Range(0, 14);
+            tiles[i].targetPosition = tiles[randomIndex].targetPosition;
+            tiles[randomIndex].targetPosition = lastPos;
+            (tiles[i], tiles[randomIndex]) = (tiles[randomIndex], tiles[i]);
         }
+
+        for (int e = 0; e <= 3; e++)
+        {
+            if (headTiles[e] == null) continue;
+            var lastPos = headTiles[e].targetPosition;
+            var randomIndex = Random.Range(0, 2);
+            headTiles[e].targetPosition = headTiles[randomIndex].targetPosition;
+            headTiles[randomIndex].targetPosition = lastPos;
+            (headTiles[e], headTiles[randomIndex]) = (headTiles[randomIndex], headTiles[e]);
+
+        }
+            
     }
 
     public void Exit()

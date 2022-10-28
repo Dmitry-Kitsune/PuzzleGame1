@@ -22,6 +22,13 @@ TagManager:
   - Blue (4)
   - Blue (5)
   - Blue (6)
+  - Block (1)
+  - Block (2)
+  - Block (3)
+  - Block (4)
+  - Block (5)
+  - Block (6)
+  - Block
   layers:
   - Default
   - TransparentFX
