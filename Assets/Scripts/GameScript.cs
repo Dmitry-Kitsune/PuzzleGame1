@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,17 +11,19 @@ public class GameScript : MonoBehaviour
     [SerializeField] private Transform emptySpace4 = null;
     [SerializeField] private TilesScript[] tiles;
     [SerializeField] private GameObject winPanel;
-    [SerializeField] private TextMeshPro winPanelTiMeshPro;
+    [SerializeField] private TextMeshProUGUI winPanelTiMeshPro;
 
+    public TilesScript tilesScript;
     //  [SerializeField] private BlockScript[] block;
     private Camera _camera;
     private bool _isFinished;
     private int _emptySpaceIndex;
+    
 
     void Start()
     {
-        _camera = Camera.main;
-        //  Shuffle();
+        _camera = Camera.main; 
+        Shuffle();
     }
 
     void Update()
@@ -108,11 +111,16 @@ public class GameScript : MonoBehaviour
                     winPanel.SetActive(true);
                     var b = GetComponent<TimerScript>();
                     b.StopTimer();
-                    winPanelTiMeshPro.text = $"{b.minutes}:{b.seconds}";
+                    winPanelTiMeshPro.text = $"{b.minutes:0#}:{b.seconds:0#}";
+                }
+                else
+                {
+                    _isFinished = false;
                 }
             }
         }
     }
+
 
     public void PlayAgain()
     {
@@ -134,6 +142,11 @@ public class GameScript : MonoBehaviour
                 tiles[randomIndex] = tile;
             }
         }
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 
     private int FindIndex(TilesScript ts)
