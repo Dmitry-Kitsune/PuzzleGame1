@@ -11,6 +11,7 @@ public class TilesScript : MonoBehaviour
     public int emptySpaceIndex;
     public static bool InRightPlace;
     public int win = 0;
+
     void Awake()
     {
         targetPosition = transform.position;
@@ -46,13 +47,13 @@ public class TilesScript : MonoBehaviour
         if (Math.Abs(redPos6 - redPos1) < 0.01 & Math.Abs(redPos6 - redPos2) < 0.01
                                                & Math.Abs(redPos6 - redPos3) < 0.01
                                                & Math.Abs(redPos6 - redPos4) < 0.01
-                                               & Math.Abs(redPos6 - redPos5) < 0.01 
-            & Math.Abs(yellowPos6 - yellowPos1) < 0.01 &
+                                               & Math.Abs(redPos6 - redPos5) < 0.01
+                                               & Math.Abs(yellowPos6 - yellowPos1) < 0.01 &
                                                Math.Abs(yellowPos6 - yellowPos2) < 0.01
                                                & Math.Abs(yellowPos6 - yellowPos3) < 0.01
                                                & Math.Abs(yellowPos6 - yellowPos4) < 0.01
-                                               & Math.Abs(yellowPos6 - yellowPos5) < 0.01 
-            & Math.Abs(bluePos6 - bluePos1) < 0.01 &
+                                               & Math.Abs(yellowPos6 - yellowPos5) < 0.01
+                                               & Math.Abs(bluePos6 - bluePos1) < 0.01 &
                                                Math.Abs(bluePos6 - bluePos2) < 0.01
                                                & Math.Abs(bluePos6 - bluePos3) < 0.01
                                                & Math.Abs(bluePos6 - bluePos4) < 0.01

@@ -15,23 +15,23 @@ public class GameScript : MonoBehaviour
     [SerializeField] private TilesScript[] tiles;
     [SerializeField] private GameObject winPanel;
     [SerializeField] private TextMeshProUGUI winPanelTiMeshPro;
-    [SerializeField] private TilesScript[] headTiles;   
+    [SerializeField] private TilesScript[] headTiles;
     public TilesScript tilesScript;
     [SerializeField] private BlockScript[] block;
     private Camera _camera;
     private bool _isFinished;
+
     private int _emptySpaceIndex;
     //public bool move { get; }
 
     void Start()
     {
-        _camera = Camera.main; 
+        _camera = Camera.main;
         Shuffle();
     }
 
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             var gameObjs = GameObject.FindGameObjectsWithTag(tag);
@@ -41,10 +41,10 @@ public class GameScript : MonoBehaviour
             if (hit)
             {
                 // Debug.Log(hit.transform.name);
-                
+
                 if (Vector2.Distance(emptySpace1.position, hit.transform.position) <= 6.01)
                 {
-                    if (gameObjs !=GameObject.FindGameObjectsWithTag("Block"))
+                    if (gameObjs != GameObject.FindGameObjectsWithTag("Block"))
                     {
                         Vector2 lastEmptySpacePosition = emptySpace1.position;
                         TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
@@ -63,7 +63,7 @@ public class GameScript : MonoBehaviour
 
                 if (Vector2.Distance(emptySpace2.position, hit.transform.position) <= 6.01)
                 {
-                    if (gameObjs !=GameObject.FindGameObjectsWithTag("Block"))
+                    if (gameObjs != GameObject.FindGameObjectsWithTag("Block"))
                     {
                         Vector2 lastEmptySpacePosition = emptySpace2.position;
                         TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
@@ -80,9 +80,9 @@ public class GameScript : MonoBehaviour
                     return;
                 }
 
-                if ( Vector2.Distance(emptySpace3.position, hit.transform.position) <= 6.01)
+                if (Vector2.Distance(emptySpace3.position, hit.transform.position) <= 6.01)
                 {
-                    if (gameObjs !=GameObject.FindGameObjectsWithTag("Block"))
+                    if (gameObjs != GameObject.FindGameObjectsWithTag("Block"))
                     {
                         Vector2 lastEmptySpacePosition = emptySpace3.position;
                         TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
@@ -101,7 +101,7 @@ public class GameScript : MonoBehaviour
 
                 if (Vector2.Distance(emptySpace4.position, hit.transform.position) <= 6.01)
                 {
-                    if (gameObjs !=GameObject.FindGameObjectsWithTag("Block"))
+                    if (gameObjs != GameObject.FindGameObjectsWithTag("Block"))
                     {
                         Vector2 lastEmptySpacePosition = emptySpace4.position;
                         TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
@@ -123,18 +123,18 @@ public class GameScript : MonoBehaviour
         if (!_isFinished)
         {
             var done = TilesScript.InRightPlace;
-                   Console.WriteLine(done);
+            Console.WriteLine(done);
             var correctTiles = 0;
             foreach (var a in tiles)
             {
-                if ( done == false)
+                if (done == false)
                 {
                     if (TilesScript.InRightPlace)
                         correctTiles++;
                 }
-                
+
                 if (done)
-                    
+
                 {
                     _isFinished = true;
                     Debug.Log("You WON!");
@@ -186,9 +186,7 @@ public class GameScript : MonoBehaviour
             headTiles[e].targetPosition = headTiles[randomIndex].targetPosition;
             headTiles[randomIndex].targetPosition = lastPos;
             (headTiles[e], headTiles[randomIndex]) = (headTiles[randomIndex], headTiles[e]);
-
         }
-            
     }
 
     public void Exit()
