@@ -1,16 +1,26 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameScript : MonoBehaviour
 {
-    [SerializeField] private Transform emptySpace = null;
-    private Camera _camera;
+    [SerializeField] private Transform emptySpace1 = null;
+    [SerializeField] private Transform emptySpace2 = null;
+    [SerializeField] private Transform emptySpace3 = null;
+    [SerializeField] private Transform emptySpace4 = null;
     [SerializeField] private TilesScript[] tiles;
-  //  [SerializeField] private BlockScript[] block;
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private TextMeshPro winPanelTiMeshPro;
+
+    //  [SerializeField] private BlockScript[] block;
+    private Camera _camera;
+    private bool _isFinished;
+    private int _emptySpaceIndex;
 
     void Start()
     {
         _camera = Camera.main;
-        Shuffle();
+        //  Shuffle();
     }
 
     void Update()
@@ -22,24 +32,96 @@ public class GameScript : MonoBehaviour
             if (hit)
             {
                 // Debug.Log(hit.transform.name);
-                if (Vector2.Distance(emptySpace.position, hit.transform.position) <= 6.01)
+                if (Vector2.Distance(emptySpace1.position, hit.transform.position) <= 6.01)
                 {
-                    Vector2 lastEmptySpacePosition = emptySpace.position;
+                    Vector2 lastEmptySpacePosition = emptySpace1.position;
                     TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
-                    emptySpace.position = thisTile.targetPosition;
+                    emptySpace1.position = thisTile.targetPosition;
                     thisTile.targetPosition = lastEmptySpacePosition;
-                    int tileIndex = findIndex(thisTile);
-                    int emptySpaceIndex;
-                    emptySpaceIndex = tileIndex;
-                    tiles[emptySpaceIndex] = tiles[tileIndex];
+                    int tileIndex = FindIndex(thisTile);
+                    this._emptySpaceIndex = 6;
+                    //this.emptySpaceIndex = 21;
+                    _emptySpaceIndex = tileIndex;
+                    tiles[_emptySpaceIndex] = tiles[tileIndex];
+                    tiles[tileIndex] = null;
+                }
+
+                if (Vector2.Distance(emptySpace2.position, hit.transform.position) <= 6.01)
+                {
+                    Vector2 lastEmptySpacePosition = emptySpace2.position;
+                    TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
+                    emptySpace2.position = thisTile.targetPosition;
+                    thisTile.targetPosition = lastEmptySpacePosition;
+                    int tileIndex = FindIndex(thisTile);
+                    this._emptySpaceIndex = 8;
+                    //this.emptySpaceIndex = 22;
+                    _emptySpaceIndex = tileIndex;
+                    tiles[_emptySpaceIndex] = tiles[tileIndex];
+                    tiles[tileIndex] = null;
+                }
+
+                if (Vector2.Distance(emptySpace3.position, hit.transform.position) <= 6.01)
+                {
+                    Vector2 lastEmptySpacePosition = emptySpace3.position;
+                    TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
+                    emptySpace3.position = thisTile.targetPosition;
+                    thisTile.targetPosition = lastEmptySpacePosition;
+                    int tileIndex = FindIndex(thisTile);
+                    this._emptySpaceIndex = 16;
+                    //this.emptySpaceIndex = 23;
+                    _emptySpaceIndex = tileIndex;
+                    tiles[_emptySpaceIndex] = tiles[tileIndex];
+                    tiles[tileIndex] = null;
+                }
+
+                if (Vector2.Distance(emptySpace4.position, hit.transform.position) <= 6.01)
+                {
+                    Vector2 lastEmptySpacePosition = emptySpace4.position;
+                    TilesScript thisTile = hit.transform.GetComponent<TilesScript>();
+                    emptySpace4.position = thisTile.targetPosition;
+                    thisTile.targetPosition = lastEmptySpacePosition;
+                    int tileIndex = FindIndex(thisTile);
+                    this._emptySpaceIndex = 18;
+                    //this.emptySpaceIndex = 24;
+                    _emptySpaceIndex = tileIndex;
+                    tiles[_emptySpaceIndex] = tiles[tileIndex];
                     tiles[tileIndex] = null;
                 }
             }
         }
+
+        if (!_isFinished)
+        {
+            int correctTiles = 0;
+            foreach (var a in tiles)
+            {
+                if (a != null)
+                {
+                    if (a.inRightPlace)
+                        correctTiles++;
+                }
+
+                if (correctTiles == tiles.Length - 4)
+                {
+                    _isFinished = true;
+                    Debug.Log("You WON!");
+                    winPanel.SetActive(true);
+                    var b = GetComponent<TimerScript>();
+                    b.StopTimer();
+                    winPanelTiMeshPro.text = $"{b.minutes}:{b.seconds}";
+                }
+            }
+        }
     }
-    public void Shuffle()
+
+    public void PlayAgain()
     {
-        for (int i = 0; i <= 25; i++)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void Shuffle()
+    {
+        for (int i = 0; i <= 24; i++)
         {
             if (tiles[i] != null)
             {
@@ -54,7 +136,7 @@ public class GameScript : MonoBehaviour
         }
     }
 
-    public int findIndex(TilesScript ts)
+    private int FindIndex(TilesScript ts)
     {
         for (int i = 0; i < tiles.Length; i++)
         {
@@ -66,28 +148,7 @@ public class GameScript : MonoBehaviour
                 }
             }
         }
-        return -1;
+
+        return this._emptySpaceIndex;
     }
-
-    /*int GetInversions()
-    {
-        int inversionsSum = 0;
-        for (int i = 0; i < tiles.Length; i++)
-        {
-            int thisTileInvertion = 0;
-            for (int j = i; j < tiles.Length; j++)
-            {
-                if (tiles[j].number != null)
-                {
-                    if (tiles[i].number > tiles[j].number)
-                    {
-                        thisTileInvertion++;
-                    }
-                }
-            }
-            inversionsSum += thisTileInvertion;
-        }
-
-        return inversionsSum;
-    }*/
 }
