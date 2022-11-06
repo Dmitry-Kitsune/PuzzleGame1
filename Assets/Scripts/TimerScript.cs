@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class TimerScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     public int seconds;
     public int minutes;
-
+    public static int Second;
     void Start()
     {
         AddToSeconds();
@@ -16,6 +17,7 @@ public class TimerScript : MonoBehaviour
     private void AddToSeconds()
     {
         seconds++;
+        Second = seconds;
         if (seconds > 59)
         {
             minutes++;
