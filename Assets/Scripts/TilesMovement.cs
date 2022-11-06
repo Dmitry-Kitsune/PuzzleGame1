@@ -7,42 +7,44 @@ using Object = UnityEngine.Object;
 
 public class TilesMovement : MonoBehaviour
 {
-    public static List<TilesMovement> movebleObjects = new List<TilesMovement>();
+    private static List<TilesMovement> _movebleObjects = new List<TilesMovement>();
     public float speed = 15f;
-    private Vector3 target;
-    private bool selected;
+    private Vector3 _target;
+    private bool _selected;
     private Camera _camera;
-    private Vector3 selTarget;
-    private Rigidbody2D body;
+    private Vector3 _selTarget;
+    private Rigidbody2D _body;
     private bool _shuffled;
     private SpriteRenderer _sprite;
+    public static bool IsSelected;
 
     void Start()
     {   
         _camera = Camera.main;
-        _sprite = GetComponent<SpriteRenderer>();
-        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+      //_sprite = GetComponent<SpriteRenderer>();
+        //gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         //isMoving = false;
-        target = transform.position;
-        movebleObjects.Add(this);
-        body = GetComponent<Rigidbody2D>();
+        _target = transform.position;
+        _body = GetComponent<Rigidbody2D>();
+        _movebleObjects.Add(this);
     }
     public void FixedUpdate()
     {
        // Debug.Log("Fixed");
-            _shuffled = GameScript.IsShuffled; 
+            _shuffled = GameScript.IsShuffled;
+            IsSelected = _selected;
        // Debug.Log($"Shufled in TilesMovement =  {_shuffled}");
-        if (Input.GetMouseButtonDown(1) && selected)
+        if (Input.GetMouseButtonDown(1) && _selected)
         {
-            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            target.z = transform.position.z;
+            _target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _target.z = transform.position.z;
             TilesScript thisTile = transform.GetComponent<TilesScript>();
-            thisTile.targetPosition =  target;
+            thisTile.targetPosition =  _target;
             Debug.Log($"Shufled in TilesMovement =  {_shuffled}");
             if (_shuffled)
             {
                 Debug.Log($"Shuffled in ");
-                transform.position = Vector3.MoveTowards(transform.position, target,
+                transform.position = Vector3.MoveTowards(transform.position, _target,
                     speed * Time.deltaTime);
             }
         }
@@ -52,16 +54,16 @@ public class TilesMovement : MonoBehaviour
         Debug.Log("OnMouseDownis on");
         if (Input.GetMouseButtonDown(0))
         {
-            selected = true;
-            Debug.Log($"OnMouseDown() selected = {selected}"); 
+            _selected = true;
+            Debug.Log($"OnMouseDown() selected = {_selected}"); 
             gameObject.GetComponent<SpriteRenderer>().color = Color.green;
 
-            foreach (TilesMovement obj in movebleObjects)
+            foreach (TilesMovement obj in _movebleObjects)
             {
                 Debug.Log($"obj{obj}");
                 if (obj != this)
                 {
-                    obj.selected = false;
+                    obj._selected = false;
                     obj.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                   //  _sprite.GetComponent<SpriteRenderer>().color = Color.white;
                 }

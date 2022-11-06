@@ -20,27 +20,22 @@ public class GameScript : MonoBehaviour
     private bool _isFinished;
     private int _emptySpaceIndex;
     private bool selected;
-
     public static bool IsShuffled;
-
-    //  private SpriteRenderer _sprite;
-    public float speed = 10f;
+    public float speed = 15f;
     private Vector3 target;
     private Vector3 selTarget;
     private Rigidbody2D body;
     private float xInput, yInput;
     private int _second;
-
-    [Obsolete("Obsolete")]
+   // [Obsolete("Obsolete")]
     void Start()
     {
-        // Physics2D.autoSimulation = false;
+        Physics2D.simulationMode = SimulationMode2D.Script; 
         _camera = Camera.main;
         Shuffle();
-        // _sprite = GetComponent<SpriteRenderer>();
     }
 
-    [Obsolete("Obsolete")]
+  //  [Obsolete("Obsolete")]
     void FixedUpdate()
     {
         _second = TimerScript.Second;
@@ -50,20 +45,16 @@ public class GameScript : MonoBehaviour
                 return;
             case >= 4:
                 Debug.Log($"Second = {_second}");
-                Physics2D.Simulate(1000);
+                Physics2D.Simulate(_second);
                 Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
-                //   Physics2D.autoSimulation = true;
-                //  _sprite.color = Color.white;
                 break;
             default:
                 return;
         }
-
-        //////////////////////////////////////////////////////////
         if (!_isFinished)
         {
             var done = TilesScript.InRightPlace;
-            // Debug.Log($"done = {done}");
+             Debug.Log($"done = {done}");
             var correctTiles = 0;
             foreach (var a in tiles)
             {
@@ -90,9 +81,7 @@ public class GameScript : MonoBehaviour
             }
         }
     }
-
-    /// /////////////////////////////////////////////////////////
-    [Obsolete("Obsolete")]
+  //  [Obsolete("Obsolete")]
     public void PlayAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -102,7 +91,7 @@ public class GameScript : MonoBehaviour
         IsShuffled = false;
     }
 
-    [Obsolete("Obsolete")]
+   // [Obsolete("Obsolete")]
     private void Shuffle()
     {
         Debug.Log($"private SHUFFLE  --  On ");
@@ -110,7 +99,7 @@ public class GameScript : MonoBehaviour
         {
             if (tiles[i] == null) continue;
             {
-                Debug.Log($"private SHUFFLE  --  i =  {i}");
+//                Debug.Log($"private SHUFFLE  --  i =  {i}");
                 var lastPos = tiles[i].targetPosition;
                 var randomIndex = Random.Range(0, 14);
                 tiles[i].targetPosition = tiles[randomIndex].targetPosition;

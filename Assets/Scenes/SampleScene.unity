@@ -785,7 +785,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 5
-  target: {x: 0, y: 0, z: 0}
 --- !u!114 &171977706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,7 +1084,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 5
-  target: {x: 0, y: 0, z: 0}
 --- !u!114 &249573553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,7 +1248,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &312625177
 Rigidbody2D:
   serializedVersion: 4
@@ -1279,12 +1276,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312625172}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &333843367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1413,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 5
-  target: {x: 0, y: 0, z: 0}
 --- !u!114 &333843372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1728,7 +1724,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &409608677
 Rigidbody2D:
   serializedVersion: 4
@@ -1757,12 +1752,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409608672}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &416654960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,7 +1889,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &416654965
 Rigidbody2D:
   serializedVersion: 4
@@ -1923,12 +1917,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416654960}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &427373597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,7 +2240,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &461809597
 Rigidbody2D:
   serializedVersion: 4
@@ -2275,12 +2268,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461809592}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,7 +2444,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!1 &542609329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,7 +2628,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 5
-  target: {x: 0, y: 0, z: 0}
 --- !u!114 &549399608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3131,7 +3122,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &829733913
 Rigidbody2D:
   serializedVersion: 4
@@ -3160,12 +3150,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829733908}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &862890964
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,7 +3338,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!1 &927042210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,7 +3873,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &1075455445
 Rigidbody2D:
   serializedVersion: 4
@@ -3913,12 +3901,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075455440}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &1089520466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4050,7 +4038,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &1089520471
 Rigidbody2D:
   serializedVersion: 4
@@ -4079,7 +4066,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089520466}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
@@ -4216,7 +4203,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &1163178226
 Rigidbody2D:
   serializedVersion: 4
@@ -4245,12 +4231,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163178221}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &1222850348
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,7 +4368,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &1222850353
 Rigidbody2D:
   serializedVersion: 4
@@ -4411,12 +4396,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222850348}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &1229363570
 GameObject:
   m_ObjectHideFlags: 0
@@ -4548,7 +4533,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 5
-  target: {x: 0, y: 0, z: 0}
 --- !u!114 &1229363575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4848,7 +4832,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &1340906669
 Rigidbody2D:
   serializedVersion: 4
@@ -4877,12 +4860,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340906664}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &1350908372
 GameObject:
   m_ObjectHideFlags: 0
@@ -5012,7 +4995,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!1 &1359841979
 GameObject:
   m_ObjectHideFlags: 0
@@ -5197,7 +5179,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 5
-  target: {x: 0, y: 0, z: 0}
 --- !u!114 &1402156460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5362,7 +5343,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &1410985685
 Rigidbody2D:
   serializedVersion: 4
@@ -5391,12 +5371,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410985680}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &1440816698
 GameObject:
   m_ObjectHideFlags: 0
@@ -5737,7 +5717,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!1 &1628663825
 GameObject:
   m_ObjectHideFlags: 0
@@ -5869,7 +5848,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &1628663830
 Rigidbody2D:
   serializedVersion: 4
@@ -5898,12 +5876,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628663825}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &1659011460
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,7 +6013,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &1659011465
 Rigidbody2D:
   serializedVersion: 4
@@ -6064,12 +6041,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659011460}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &1741692301
 GameObject:
   m_ObjectHideFlags: 0
@@ -6440,7 +6417,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &1924093593
 Rigidbody2D:
   serializedVersion: 4
@@ -6469,12 +6445,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924093588}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &1948843311
 GameObject:
   m_ObjectHideFlags: 0
@@ -7031,7 +7007,6 @@ MonoBehaviour:
   emptySpaceIndex: 0
   win: 0
   speed: 15
-  target: {x: 0, y: 0, z: 0}
 --- !u!50 &2067117040
 Rigidbody2D:
   serializedVersion: 4
@@ -7060,12 +7035,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067117035}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81dc7de3236b35943897679051c36186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!1 &2072261447
 GameObject:
   m_ObjectHideFlags: 0
