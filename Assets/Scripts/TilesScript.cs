@@ -1,44 +1,27 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class TilesScript : MonoBehaviour
 {
     public Vector3 targetPosition;
     private Vector3 _correctPosition;
     private SpriteRenderer _sprite;
-    public int number;
     public int emptySpaceIndex;
     public static bool InRightPlace;
-    public int win = 0;
-    private bool selected;
-    private Rigidbody2D body;
-    public float speed = 15f;
+    private Rigidbody2D _body;
+    public float speed = 10f;
     private bool _shuffled;
     private Camera _camera;
-    private Vector3 selTarget;
     private int _second;
-
-    public object m_LocalPosition { get; }
 
     void Awake()
     {
         targetPosition = transform.position;
-        _correctPosition = targetPosition;
         _sprite = GetComponent<SpriteRenderer>();
-        //   moveableObjects.Add(this);
     }
 
     void FixedUpdate()
     {
-        //  Debug.Log($"GameScript shuffled = {_shuffled}");
-        //  Debug.Log($"Update = on");
-        Debug.Log($"TilesScript TILES on Right place = {InRightPlace}");
-        // Debug.Log($"Shufled in TilesMovement =  {_shuffled}");
-        selected = TilesMovement.IsSelected;
-
-        Debug.Log($"TilesScript_isSelected = {selected}");
         _shuffled = false;
         InRightPlace = false;
         _shuffled = GameScript.IsShuffled;
@@ -46,7 +29,6 @@ public class TilesScript : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition,
                 speed * Time.deltaTime);
-            //   Debug.Log($"Shuffle off = {_shuffled}");
         }
 
         if (_shuffled)
@@ -71,38 +53,31 @@ public class TilesScript : MonoBehaviour
             var bluePos3 = GameObject.FindGameObjectWithTag("Blue (3)").transform.localPosition.x;
             var bluePos4 = GameObject.FindGameObjectWithTag("Blue (4)").transform.localPosition.x;
             var bluePos5 = GameObject.FindGameObjectWithTag("Blue (5)").transform.localPosition.x;
-           // Debug.Log($"Red1 pos = {redPos1}");
-           //  Debug.Log($"Red2 pos = {redPos2}");
-           // Debug.Log($"Red3 pos = {redPos3}");
-           // Debug.Log($"Red6 pos = {redPos6}");
+
             _second = TimerScript.Second;
-            if (Math.Abs(redPos6 - redPos1) < 0.1 && Math.Abs(redPos6 - redPos2) < 0.1
-                                                   && Math.Abs(redPos6 - redPos3) < 0.1
-                                                   && Math.Abs(redPos6 - redPos4) < 0.1
-                                                   && Math.Abs(redPos6 - redPos5) < 0.1
-                                                   && Math.Abs(yellowPos6 - yellowPos1) < 0.1 &&
-                                                   Math.Abs(yellowPos6 - yellowPos2) < 0.1
-                                                   && Math.Abs(yellowPos6 - yellowPos3) < 0.1
-                                                   && Math.Abs(yellowPos6 - yellowPos4) < 0.1
-                                                   && Math.Abs(yellowPos6 - yellowPos5) < 0.1
-                                                   && Math.Abs(bluePos6 - bluePos1) < 0.1 &&
-                                                   Math.Abs(bluePos6 - bluePos2) < 0.1
-                                                   && Math.Abs(bluePos6 - bluePos3) < 0.1
-                                                   && Math.Abs(bluePos6 - bluePos4) < 0.1
-                                                   && Math.Abs(bluePos6 - bluePos5) < 0.1 && _shuffled && _second >= 3)
+            if (Math.Abs(redPos6 - redPos1) < 0.12 && Math.Abs(redPos6 - redPos2) < 0.12
+                                                   && Math.Abs(redPos6 - redPos3) < 0.12
+                                                   && Math.Abs(redPos6 - redPos4) < 0.12
+                                                   && Math.Abs(redPos6 - redPos5) < 0.12
+                                                   && Math.Abs(yellowPos6 - yellowPos1) < 0.12 &&
+                                                   Math.Abs(yellowPos6 - yellowPos2) < 0.12
+                                                   && Math.Abs(yellowPos6 - yellowPos3) < 0.12
+                                                   && Math.Abs(yellowPos6 - yellowPos4) < 0.12
+                                                   && Math.Abs(yellowPos6 - yellowPos5) < 0.12
+                                                   && Math.Abs(bluePos6 - bluePos1) < 0.12 &&
+                                                   Math.Abs(bluePos6 - bluePos2) < 0.12
+                                                   && Math.Abs(bluePos6 - bluePos3) < 0.12
+                                                   && Math.Abs(bluePos6 - bluePos4) < 0.12
+                                                   && Math.Abs(bluePos6 - bluePos5) < 0.12
+                                                   && _shuffled && _second >= 3)
 
             {
                 _sprite.color = Color.green;
                 InRightPlace = true;
-                win = 1;
             }
             else
             {
                 InRightPlace = false;
-                if (!selected)
-                {
-                    //_sprite.color = Color.white;
-                }
             }
         }
     }

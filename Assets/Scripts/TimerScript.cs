@@ -1,7 +1,5 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TimerScript : MonoBehaviour
 {
@@ -9,6 +7,7 @@ public class TimerScript : MonoBehaviour
     public int seconds;
     public int minutes;
     public static int Second;
+
     void Start()
     {
         AddToSeconds();

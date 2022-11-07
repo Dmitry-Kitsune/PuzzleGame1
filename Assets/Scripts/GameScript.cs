@@ -27,7 +27,6 @@ public class GameScript : MonoBehaviour
     private Rigidbody2D body;
     private float xInput, yInput;
     private int _second;
-   // [Obsolete("Obsolete")]
     void Start()
     {
         Physics2D.simulationMode = SimulationMode2D.Script; 
@@ -35,7 +34,6 @@ public class GameScript : MonoBehaviour
         Shuffle();
     }
 
-  //  [Obsolete("Obsolete")]
     void FixedUpdate()
     {
         _second = TimerScript.Second;
@@ -44,7 +42,6 @@ public class GameScript : MonoBehaviour
             case < 4:
                 return;
             case >= 4:
-                Debug.Log($"Second = {_second}");
                 Physics2D.Simulate(_second);
                 Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
                 break;
@@ -54,7 +51,6 @@ public class GameScript : MonoBehaviour
         if (!_isFinished)
         {
             var done = TilesScript.InRightPlace;
-             Debug.Log($"done = {done}");
             var correctTiles = 0;
             foreach (var a in tiles)
             {
@@ -81,31 +77,25 @@ public class GameScript : MonoBehaviour
             }
         }
     }
-  //  [Obsolete("Obsolete")]
     public void PlayAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-        // Physics2D.autoSimulation = false;
+        TilesMovement.DestroyList();
         Physics2D.simulationMode = SimulationMode2D.Script;
         IsShuffled = false;
     }
 
-   // [Obsolete("Obsolete")]
     private void Shuffle()
     {
-        Debug.Log($"private SHUFFLE  --  On ");
         for (int i = 0; i <= 18; i++)
         {
             if (tiles[i] == null) continue;
             {
-//                Debug.Log($"private SHUFFLE  --  i =  {i}");
                 var lastPos = tiles[i].targetPosition;
                 var randomIndex = Random.Range(0, 14);
                 tiles[i].targetPosition = tiles[randomIndex].targetPosition;
                 tiles[randomIndex].targetPosition = lastPos;
                 (tiles[i], tiles[randomIndex]) = (tiles[randomIndex], tiles[i]);
-                Debug.Log($"private SHUFFLE  -Counting-  isShuffled =  {IsShuffled}");
             }
             if (i == 14)
             {
@@ -130,4 +120,5 @@ public class GameScript : MonoBehaviour
     {
         Application.Quit();
     }
+    
 }
